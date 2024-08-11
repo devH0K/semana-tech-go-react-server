@@ -10,6 +10,7 @@ import (
 
 	"github.com/devH0K/semana-tech-go-react-server/internal/api"
 	"github.com/devH0K/semana-tech-go-react-server/internal/store/pgstore/pgstore"
+
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
 )
@@ -29,7 +30,6 @@ func main() {
 		os.Getenv("WSRS_DATABASE_PORT"),
 		os.Getenv("WSRS_DATABASE_NAME"),
 	))
-
 	if err != nil {
 		panic(err)
 	}
@@ -53,5 +53,4 @@ func main() {
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, os.Interrupt)
 	<-quit
-
 }
